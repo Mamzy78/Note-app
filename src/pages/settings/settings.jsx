@@ -4,6 +4,7 @@ import Btn from "../../components/button/btn";
 import Backbtn from "../../components/button/backbtn";
 import { useState } from "react";
 import TextSizeModal from "../../components/modal/textSizeModal/TextSizeModal";
+import Navigator from "../../components/navigator";
 
 function Settings() {
   const [showModal, setShowModal] = useState(false);
@@ -27,8 +28,8 @@ function Settings() {
   }
 
   return (
-    <div className="h-screen max-w-md mx-auto">
-      <div className="relative h-12 border-b px-4 flex items-center">
+    <div className="h-screen max-w-md mx-auto relative">
+      <div className="h-12 border-b px-4 flex items-center">
         <Backbtn onClick={ClickHandler} className="z-10">
           <p className="text-purple-color-app font-bold">Back</p>
         </Backbtn>
@@ -99,6 +100,8 @@ function Settings() {
           <span className="text-[#CE3A54] font-InterMedium">Log Out</span>
         </button>
       </div>
+
+      <Navigator className="fixed bottom-0 left-0 w-full"/>
     </div>
   );
 }

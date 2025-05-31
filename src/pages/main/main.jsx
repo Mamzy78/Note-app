@@ -47,11 +47,11 @@ function Main() {
         </>
       ) : (
         <>
-          {/* 📌 pinnedNotes */}
+          {/* pinnedNotes */}
           {pinnedNotes.length > 0 && (
             <>
               <div className="flex justify-between items-center mb-4 px-2 mt-4">
-                <p className="text-lg font-semibold">📌 Pinned Notes</p>
+                <p className="text-lg font-semibold">Pinned Notes</p>
                 <a href="">View all</a>
               </div>
 
@@ -91,11 +91,11 @@ function Main() {
             </>
           )}
 
-          {/* 📝 notes */}
+          {/*  notes */}
           {notes.length > 0 && (
             <>
               <div className="flex justify-between items-center mb-4 px-2 mt-4">
-                <p className="text-lg font-semibold">📝 All Notes</p>
+                <p className="text-lg font-semibold">Latest</p>
                 <a href="#" className="text-sm text-purple-600">
                   View all
                 </a>
