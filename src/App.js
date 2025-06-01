@@ -23,8 +23,8 @@ export default function App() {
           <Route path="/newproduct" element={<Newproduct />} />
           <Route path="/search" element={<Search />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/intro" element={<Intro />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/verification" element={<Verification />} />
         </Routes>

@@ -23,6 +23,10 @@ function Main() {
     navigate(`/edit/${noteID}`);
   };
 
+  const handleViewAll = (type) => {
+    navigate("/viewAllNotes", { state: { noteType: type } });
+  };
+
   return (
     <div className="flex flex-col justify-center bg-light-grey h-screen max-w-md mx-auto relative pb-16">
       {/* اگر هیچ نوتی نبود */}
@@ -52,7 +56,12 @@ function Main() {
             <>
               <div className="flex justify-between items-center mb-4 px-2 mt-4">
                 <p className="text-lg font-semibold">Pinned Notes</p>
-                <a href="">View all</a>
+                <buttun
+                  onClick={() => handleViewAll("pinned")}
+                  className="text-sm text-purple-600 cursor-pointer"
+                >
+                  View all
+                </buttun>
               </div>
 
               <Swiper
@@ -96,9 +105,12 @@ function Main() {
             <>
               <div className="flex justify-between items-center mb-4 px-2 mt-4">
                 <p className="text-lg font-semibold">Latest</p>
-                <a href="#" className="text-sm text-purple-600">
+                <button
+                  onClick={() => handleViewAll("latest")}
+                  className="text-sm text-purple-600 cursor-pointer"
+                >
                   View all
-                </a>
+                </button>
               </div>
 
               <Swiper
