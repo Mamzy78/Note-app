@@ -3,6 +3,7 @@ import Backbtn from "../../components/button/backbtn";
 import Btn from "../../components/button/btn";
 import { useNavigate } from "react-router-dom";
 import { saveImageToIndexedDB, getImageFromIndexedDB } from "./../../utils/IndexedDB"
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 function Profile() {
   const navigate = useNavigate();
@@ -11,13 +12,16 @@ function Profile() {
   // state‌ها
   const [profilePic, setProfilePic] = useState(null);
   const [fullName, setFullName] = useState("User");
+  const [email, setEmail] = useState("Email");
   const [mobile, setMobile] = useState("");
 
   // گرفتن مقادیر از localStorage هنگام بارگذاری
   useEffect(() => {
-  const fullName = localStorage.getItem("userFullName") || "User";
+  const fullName = localStorage.getItem("userFullName") || "";
   const mobile = localStorage.getItem("userMobile") || "";
+  const email = localStorage.getItem("userEmail") || "";
   setFullName(fullName);
+  setEmail(email)
   setMobile(mobile);
 
   getImageFromIndexedDB().then(blob => {
@@ -49,6 +53,7 @@ const handleFileChange = (event) => {
   const saveUserEditInfos = () => {
   localStorage.setItem("userFullName", fullName);
   localStorage.setItem("userMobile", mobile);
+  localStorage.setItem("userEmail", email)
 
   if (selectedImageFile) {
     saveImageToIndexedDB(selectedImageFile)
@@ -80,11 +85,15 @@ const handleFileChange = (event) => {
         <div className="px-4">
           {/* Profile Image */}
           <div className="flex flex-col items-center mt-6 border-b pb-6">
-            <img
-              src={profilePic || "default-avatar.png"} // عکس پیش‌فرض
+            {profilePic ? (
+              <img
+              src={profilePic} // عکس پیش‌فرض
               alt="Profile"
               className="h-[120px] w-[120px] object-cover rounded-full"
             />
+            ) : (
+              <AccountCircleOutlinedIcon style={{ fontSize: 64, color: '#9ca3af' }} />
+            )}
             <input
               type="file"
               ref={fileInputRef}
@@ -109,6 +118,18 @@ const handleFileChange = (event) => {
               placeholder="Your Name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
+              className="border border-[#C8C5CB] rounded-md p-4 w-full"
+            />
+          </div>
+
+          {/* Email */}
+          <div className="mt-8">
+            <p className="mb-3">Email</p>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="border border-[#C8C5CB] rounded-md p-4 w-full"
             />
           </div>
