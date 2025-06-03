@@ -1,14 +1,69 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Navigator from "../../components/navigator";
 
 function Search() {
-    return(
-        <div className="px-4">
-            <div className="flex">
-                <img className="mr-3" src="Back.svg" />
-                <input type="search" placeholder="Search..." className="rounded-lg h-9 bg-light-grey p-4"></input>
+  const [query, setQuery] = useState("");
+  const [allNotes, setAllNotes] = useState([]);
+  const [filteredNotes, setFilteredNotes] = useState([]);
+
+  useEffect(() => {
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+    const pinnedNotes = JSON.parse(localStorage.getItem("pinnedNotes")) || [];
+    setAllNotes([...pinnedNotes, ...notes]);
+  }, []);
+
+  useEffect(() => {
+    const results = allNotes.filter(
+      (note) =>
+        note.title.toLowerCase().includes(query.toLowerCase()) ||
+        note.content.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredNotes(results);
+  }, [query, allNotes]);
+
+  return (
+    <div className="h-screen max-w-md mx-auto relative px-4">
+      <div className="flex pt-6">
+        <img className="mr-3" src="Back.svg" alt="Back" />
+        <input
+          type="search"
+          placeholder="Search..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="rounded-lg h-9 bg-light-grey p-4 w-full outline-none focus:ring-0"
+        />
+      </div>
+
+      {/* نتایج جستجو */}
+      {query ? (
+        <div className="mt-6 grid grid-cols-2 gap-4">
+          {filteredNotes.map((note) => (
+            <div
+              key={note.id}
+              style={{ backgroundColor: note.backgroundColor || "#fff" }}
+              className="p-4 rounded-lg shadow-md border border-slate-200 h-48"
+            >
+              <h1 className="text-sm font-bold text-slate-800 mb-2 truncate">
+                {note.title}
+              </h1>
+              <p className="text-xs text-slate-600 line-clamp-4">
+                {note.content}
+              </p>
             </div>
+          ))}
+          {query && filteredNotes.length === 0 && (
+            <p className="col-span-2 text-center text-sm text-slate-400 mt-8">
+              No results found.
+            </p>
+          )}
         </div>
-    )
+      ) : (
+        <></>
+      )}
+
+      <Navigator className="fixed bottom-0 left-0 w-full" />
+    </div>
+  );
 }
 
-export default Search
+export default Search;

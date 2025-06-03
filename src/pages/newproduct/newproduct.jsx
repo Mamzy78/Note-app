@@ -128,8 +128,8 @@ function Newnote() {
           />,
           document.body
         )}
-
-      {isPinnedModalopen &&
+        
+      {isPinnedModalopen && 
         ReactDOM.createPortal(
           <PinnedModal
             isPinnedModalOpen={isPinnedModalopen}
