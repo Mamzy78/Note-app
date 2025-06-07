@@ -22,8 +22,9 @@ function Search() {
   }, [query, allNotes]);
 
   return (
-    <div className="h-screen max-w-md mx-auto relative px-4">
-      <div className="flex pt-6">
+    <div className="h-screen max-w-md mx-auto relative">
+      <div className="px-4">
+        <div className="flex pt-6">
         <img className="mr-3" src="Back.svg" alt="Back" />
         <input
           type="search"
@@ -41,12 +42,12 @@ function Search() {
             <div
               key={note.id}
               style={{ backgroundColor: note.backgroundColor || "#fff" }}
-              className="p-4 rounded-lg shadow-md border border-slate-200 h-48"
+              className="p-4 rounded-lg shadow-md text-custome-black border border-slate-200 h-48"
             >
-              <h1 className="text-sm font-bold text-slate-800 mb-2 truncate">
+              <h1 className="text-sm font-InterMedium mb-2 truncate">
                 {note.title}
               </h1>
-              <p className="text-xs text-slate-600 line-clamp-4">
+              <p className="text-xs line-clamp-4">
                 {note.content}
               </p>
             </div>
@@ -60,8 +61,9 @@ function Search() {
       ) : (
         <></>
       )}
+      </div>
 
-      <Navigator className="fixed bottom-0 left-0 w-full" />
+      <Navigator className="absolute bottom-0 w-full" />
     </div>
   );
 }

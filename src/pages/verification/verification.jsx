@@ -14,7 +14,7 @@ function Verification() {
 
     const handleOtpChange = (event, index) => {
         const value = event.target.value;
-        if (!/^\d?$/.test(value)) return; // فقط یک رقم یا خالی
+        if (!/^\d?$/.test(value)) return;
 
         const newOtp = [...otp];
         newOtp[index] = value;
@@ -45,15 +45,15 @@ function Verification() {
         <div className="flex flex-col justify-center bg-light-grey h-screen max-w-md mx-auto relative px-4">
             <div className="flex absolute top-2 w-full h-12">
                 <Backbtn onClick={ClickHandler}>
-                    <p className="text-purple-color-app font-bold">Back to Login</p>
+                    <p className="text-purple-color-app font-InterMedium">Back to Login</p>
                 </Backbtn>
             </div>
             <div className="mb-16">
-                <h1 className="text-4xl mb-4 leading-10 font-bold">Enter Verification Code</h1>
+                <h1 className="text-[32px] mb-4 leading-10 font-InterBold">Enter Verification Code</h1>
                 <h2 className="text-slate-500">Insert your code sent via SMS</h2>
             </div>
             <div>
-                <p className="mb-3 font-medium">OTP code</p>
+                <p className="mb-3 font-InterMedium">OTP code</p>
                 <div className="flex justify-between gap-2">
                     {otp.map((digit, index) => (
                         <input
@@ -72,7 +72,7 @@ function Verification() {
             </div>
             <div className="absolute bottom-14 right-0 w-full px-4">
                 <Btn 
-                    className={isOtpCorrect ? 'bg-purple-color-app text-white' : 'bg-gray-300 text-white'}
+                    className={isOtpCorrect ? 'bg-purple-color-app text-white font-InterMedium' : 'bg-gray-300 text-white'}
                     onClick={clickHandler}
                     disabled={!isOtpCorrect}
                 >

@@ -4,6 +4,7 @@ import Btn from "../../components/button/btn";
 import { useNavigate } from "react-router-dom";
 import { saveImageToIndexedDB, getImageFromIndexedDB } from "./../../utils/IndexedDB"
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import CheckIcon from '@mui/icons-material/Check';
 
 function Profile() {
   const navigate = useNavigate();
@@ -15,22 +16,30 @@ function Profile() {
   const [email, setEmail] = useState("Email");
   const [mobile, setMobile] = useState("");
 
-  // گرفتن مقادیر از localStorage هنگام بارگذاری
   useEffect(() => {
-  const fullName = localStorage.getItem("userFullName") || "";
-  const mobile = localStorage.getItem("userMobile") || "";
-  const email = localStorage.getItem("userEmail") || "";
-  setFullName(fullName);
-  setEmail(email)
-  setMobile(mobile);
+  const storedFullName = localStorage.getItem("userFullName") || "";
+  const storedMobile = localStorage.getItem("userPhoneNumber") || "";
+  const storedEmail = localStorage.getItem("userEmail") || "";
 
-  getImageFromIndexedDB().then(blob => {
+  console.log("Loaded from localStorage:", {
+    storedFullName,
+    storedMobile,
+    storedEmail
+  });
+
+  setFullName(storedFullName);
+  setEmail(storedEmail);
+  setMobile(storedMobile);
+
+  getImageFromIndexedDB().then((blob) => {
     if (blob) {
       const imageUrl = URL.createObjectURL(blob);
       setProfilePic(imageUrl);
     }
   });
 }, []);
+
+
 
   // تغییر عکس
   const [selectedImageFile, setSelectedImageFile] = useState(null);
@@ -75,7 +84,7 @@ const handleFileChange = (event) => {
         {/* Header */}
         <div className="relative h-12 border-b px-4 flex items-center">
           <Backbtn onClick={ClickHandler} className="z-10">
-            <p className="text-purple-color-app font-bold">Back</p>
+            <p className="text-purple-color-app font-InterMedium">Back</p>
           </Backbtn>
           <p className="absolute left-1/2 transform -translate-x-1/2 text-center pointer-events-none">
             Edit Profile
@@ -150,8 +159,9 @@ const handleFileChange = (event) => {
 
       {/* Save Button */}
       <div className="px-4">
-        <Btn onClick={saveUserEditInfos} className="w-full bg-purple-color-app mb-8">
+        <Btn onClick={saveUserEditInfos} className="relative w-full bg-purple-color-app mb-8">
           <span className="text-white">Save Changes</span>
+          <CheckIcon className="absolute left-5 text-white" />
         </Btn>
       </div>
     </div>

@@ -10,6 +10,7 @@ import Settings from "./pages/settings/settings";
 import Profile from "./pages/profile/profile";
 import EditNote from "./pages/editnote/EditNote";
 import ViewAllNotes from "./pages/viewallnotes/ViewAllNotes";
+import Finished from "./pages/finished/Finished";
 
 export default function App() {
   
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/verification" element={<Verification />} />
+          <Route path="/finished" element={<Finished />} />
         </Routes>
     </>
   );

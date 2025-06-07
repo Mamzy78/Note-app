@@ -14,14 +14,14 @@ function Navigator() {
   const currentPath = location.pathname;
 
   return (
-    <div className="absolute bottom-0 w-full">
+    <div className="absolute bottom-0 w-full z-50">
       <div className="flex justify-center">
         <button
-          className="absolute bottom-12 p-1"
+          className="absolute bottom-12 h-16 w-16 p-4 bg-purple-color-app rounded-full"
           onClick={() => navigate("/newproduct")}
         >
           <img
-            className="bg-purple-color-app h-16 rounded-full"
+            className="h-8 w-8"
             src="plus.svg"
             alt="#add"
           />
@@ -40,7 +40,7 @@ function Navigator() {
             ) : (
               <HomeOutlinedIcon style={{ width: "32px", height: "32px" }} />
             )}
-            <p className="text-sm">Home</p>
+            <p className="text-[10px] font-Inter">Home</p>
           </button>
 
           <button
@@ -54,7 +54,7 @@ function Navigator() {
             ): (
               <AssignmentTurnedInOutlinedIcon style={{width:"32px", height: "32px"}} />
             )}
-            <p className="text-sm">Finished</p>
+            <p className="text-[10px] font-Inter">Finished</p>
           </button>
         </div>
 
@@ -70,7 +70,7 @@ function Navigator() {
             ) : (
               <SearchOutlinedIcon style={{width:"32px", height: "32px"}} />
             )}
-            <p className="text-sm">Search</p>
+            <p className="text-[10px] font-Inter">Search</p>
           </button>
 
           <button
@@ -84,7 +84,7 @@ function Navigator() {
             ) : (
               <img src="cog.svg" alt="#Settings" />
             )}
-            <p className="text-sm">Settings</p>
+            <p className="text-[10px] font-Inter">Settings</p>
           </button>
         </div>
       </div>

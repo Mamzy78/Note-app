@@ -43,15 +43,15 @@ export default function ViewAllNotes() {
             onClick={() => handleNoteClick(note.id)}
           >
             <div className="flex flex-col justify-between h-full">
-              <div>
-                <h1 className="text-sm font-bold text-slate-800 mb-2 truncate">
+              <div className="text-custome-black">
+                <h1 className="text-sm font-InterMedium mb-2 truncate">
                   {note.title}
                 </h1>
-                <p className="text-xs text-slate-600 line-clamp-3 break-words overflow-hidden">
+                <p className="text-xs line-clamp-3 break-words overflow-hidden">
                   {note.content}
                 </p>
               </div>
-              <p className="text-xs text-right text-slate-400 mt-2">
+              <p className="text-xs text-right text-dark-grey mt-2">
                 {note.timestamp}
               </p>
             </div>

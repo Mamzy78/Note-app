@@ -33,21 +33,20 @@ function Main() {
       {pinnedNotes.length === 0 && notes.length === 0 ? (
         <>
           <img
-            className="mb-6 leading-10 font-bold h-60"
+            className="mb-6 leading-10 h-60"
             src="Illustration(2).svg"
             alt="main-pic"
           />
-          <h1 className="text-center text-4xl mb-4 font-bold">
-            Start Your Journey
-          </h1>
-          <p className="text-center text-slate-500">
-            Every big step starts with a small step.
-            <br />
-            Note your first idea and start
-            <br />
-            your journey!
-          </p>
-          <img className="mt-5 h-20 w-full" src="Arrow.svg" alt="down" />
+          <div className="px-20">
+            <h1 className="text-center text-2xl mb-4 font-InterBold">
+              Start Your Journey
+            </h1>
+            <p className="text-center text-dark-grey">
+              Every big step starts with a small step. Note your first idea and
+              start your journey!
+            </p>
+          </div>
+          <img className="mt-5 h-36 w-full" src="Arrow.svg" alt="down" />
         </>
       ) : (
         <>
@@ -56,12 +55,12 @@ function Main() {
             <>
               <div className="flex justify-between items-center mb-4 px-2 mt-4">
                 <p className="text-lg font-semibold">Pinned Notes</p>
-                <buttun
+                <button
                   onClick={() => handleViewAll("pinned")}
                   className="text-sm text-purple-600 cursor-pointer"
                 >
                   View all
-                </buttun>
+                </button>
               </div>
 
               <Swiper
@@ -82,11 +81,11 @@ function Main() {
                       className="flex flex-col justify-between p-4 rounded-lg shadow-md border border-slate-200 h-52 w-48 cursor-pointer"
                       onClick={() => handleNoteClick(note.id)}
                     >
-                      <div>
-                        <h1 className="text-lg font-bold text-slate-800 mb-2 truncate">
+                      <div className="text-custome-black">
+                        <h1 className="text-lg font-InterMedium mb-4 truncate">
                           {note.title}
                         </h1>
-                        <p className="text-sm text-slate-600 line-clamp-3 break-words overflow-hidden">
+                        <p className="text-sm text-dark line-clamp-3 break-words overflow-hidden">
                           {note.content}
                         </p>
                       </div>
@@ -131,11 +130,11 @@ function Main() {
                       className="flex flex-col justify-between p-4 rounded-lg shadow-md border border-slate-200 h-52 w-48 cursor-pointer"
                       onClick={() => handleNoteClick(note.id)}
                     >
-                      <div>
-                        <h1 className="text-lg font-bold text-slate-800 mb-2 truncate">
+                      <div className="text-dark-grey">
+                        <h1 className="text-lg font-InterMedium mb-4 truncate">
                           {note.title}
                         </h1>
-                        <p className="text-sm text-slate-600 line-clamp-3 break-words overflow-hidden">
+                        <p className="text-sm text-dark line-clamp-3 break-words overflow-hidden">
                           {note.content}
                         </p>
                       </div>
@@ -151,7 +150,7 @@ function Main() {
         </>
       )}
 
-      <Navigator className="fixed bottom-0 left-0 w-full" />
+      <Navigator className="absolute bottom-0 left-0 w-full" />
     </div>
   );
 }

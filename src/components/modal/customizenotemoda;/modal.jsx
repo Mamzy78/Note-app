@@ -20,30 +20,29 @@ function MyModal({ isCustomizeModalOpen, toggleModal, onColorSelect, onDelete })
             <button onClick={toggleModal} className="flex justify-center items-center absolute right-5 bg-slate-200 rounded-full w-6 h-6">
               <img src="/x.svg" alt="Close" className='w-4 h-4'/>
             </button>
-            <p className="text-gray-900 mt-6 mb-4">CHANGE BACKGROUND</p>
+            <p className="text-dark-grey mt-6 mb-4">CHANGE BACKGROUND</p>
             
-            {/* Example interactive content */}
             <div className="flex justify-between pb-9 border-b">
-              <button onClick={() => onColorSelect('#fffffff')}>
-                <img src="/Extra Menu BG Choice(1).svg" alt="white" />
+              <button className='w-8 h-8 rounded-full bg-white border border-[#C8C5CB]' onClick={() => onColorSelect('#ffffff')}>
+                {/* white color */}
               </button>
-              <button onClick={() => onColorSelect('#F7DEE3')}>
-                  <img src="/Extra Menu BG Choice(2).svg" alt='pink'/>
+              <button className='w-8 h-8 rounded-full bg-[#F7DEE3]' onClick={() => onColorSelect('#F7DEE3')}>
+                  {/* pinkish color */}
               </button>
-              <button onClick={() => onColorSelect('#EFE9F7')}>
-                  <img src="/Extra Menu BG Choice(3).svg" alt='gray'/>
+              <button className='w-8 h-8 rounded-full bg-[#EFEEF0]' onClick={() => onColorSelect('#EFEEF0')}>
+                  {/* greyish color */}
               </button>
-              <button onClick={() => onColorSelect('#DAF6E4')}>
-                  <img src="/Extra Menu BG Choice(4).svg" alt='gerrnish'/>
+              <button className='w-8 h-8 rounded-full bg-[#DAF6E4]' onClick={() => onColorSelect('#DAF6E4')}>
+                  {/* green color */}
               </button>
-              <button onClick={() => onColorSelect('#FDEBAB')}>
-                  <img src="/Extra Menu BG Choice(5).svg" alt='yellowish'/>
+              <button className='w-8 h-8 rounded-full bg-[#FDEBAB]' onClick={() => onColorSelect('#FDEBAB')}>
+                  {/* dark yellow color */}
               </button>
-              <button onClick={() => onColorSelect('#F7F6D4')}>
-                  <img src="/Extra Menu BG Choice(6).svg" alt='light-gray'/>
+              <button className='w-8 h-8 rounded-full bg-[#EFE9F7]' onClick={() => onColorSelect('#EFE9F7')}>
+                  {/* purpelish color */}
               </button>
-              <button onClick={() => onColorSelect('#EFEEF0')}>
-                  <img src="/Extra Menu BG Choice(7).svg" alt='light-brown'/>
+              <button className='w-8 h-8 rounded-full bg-[#F7F6D4]' onClick={() => onColorSelect('#F7F6D4')}>
+                  {/* <light yellow color */}
               </button>
             </div>
             <div className='mt-2 pt-4'>
@@ -55,7 +54,7 @@ function MyModal({ isCustomizeModalOpen, toggleModal, onColorSelect, onDelete })
                   }}
               >
                 <img src="/trash.svg" alt="Delete"/>
-                <span className="text-red-500">Delete Note</span>
+                <span className="text-delete-red font-InterMedium">Delete Note</span>
               </button>
             </div>
           </div>

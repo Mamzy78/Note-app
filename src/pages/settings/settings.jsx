@@ -52,9 +52,9 @@ function Settings() {
     <div className="h-screen max-w-md mx-auto relative">
       <div className="h-12 border-b px-4 flex items-center">
         <Backbtn onClick={ClickHandler} className="z-10">
-          <p className="text-purple-color-app font-bold">Back</p>
+          <p className="text-purple-color-app font-InterMedium">Back</p>
         </Backbtn>
-        <p className="absolute left-1/2 transform -translate-x-1/2 text-center pointer-events-none">
+        <p className="absolute left-1/2 transform -translate-x-1/2 text-center font-InterMedium pointer-events-none">
           Settings
         </p>
       </div>
@@ -84,7 +84,7 @@ function Settings() {
             onClick={EditNavigate}
           >
             <img src="pencil-alt.svg" alt="edit-svg" />
-            <p className="text-purple-color-app ml-2">Edit Profile</p>
+            <p className="text-purple-color-app ml-2 font-InterMedium">Edit Profile</p>
           </Btn>
         </div>
       </div>
@@ -104,7 +104,7 @@ function Settings() {
         >
           <div className="flex items-center gap-3">
             <img src="text-size.svg" alt="text-size-icon" />
-            <span>Text Size</span>
+            <span className="font-InterMedium">Text Size</span>
           </div>
           <span className="text-dark-grey capitalize">{textSize}</span>
         </a>
