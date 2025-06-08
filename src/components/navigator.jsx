@@ -15,9 +15,9 @@ function Navigator() {
 
   return (
     <div className="absolute bottom-0 w-full z-50">
-      <div className="flex justify-center">
+      <div className="flex justify-center bg-light-grey">
         <button
-          className="absolute bottom-12 h-16 w-16 p-4 bg-purple-color-app rounded-full"
+          className="absolute z-30 bottom-12 h-16 w-16 p-4 bg-purple-color-app rounded-full"
           onClick={() => navigate("/newproduct")}
         >
           <img
@@ -26,6 +26,7 @@ function Navigator() {
             alt="#add"
           />
         </button>
+        <span className="absolute bottom-10 z-20 h-20 w-20 bg-light-grey rounded-full"></span>
       </div>
       <div className="flex justify-between items-center bg-white h-21 px-4">
         <div className="flex w-1/3 justify-between">
