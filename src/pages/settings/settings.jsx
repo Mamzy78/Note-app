@@ -7,6 +7,9 @@ import TextSizeModal from "../../components/modal/textSizeModal/TextSizeModal";
 import Navigator from "../../components/navigator";
 import { getImageFromIndexedDB } from "../../utils/IndexedDB";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import FormatSizeIcon from "@mui/icons-material/FormatSize";
+import LogoutIcon from "@mui/icons-material/Logout";
+import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 
 function Settings() {
   const [showModal, setShowModal] = useState(false);
@@ -50,7 +53,7 @@ function Settings() {
   return (
     <div className="h-screen max-w-md mx-auto relative">
       <div className="h-12 border-b px-4 flex items-center">
-        <Backbtn onClick={ClickHandler} className="z-10">
+        <Backbtn onClick={ClickHandler}>
           <p className="text-purple-color-app font-InterMedium">Back</p>
         </Backbtn>
         <p className="absolute left-1/2 transform -translate-x-1/2 text-center font-InterMedium pointer-events-none">
@@ -60,7 +63,7 @@ function Settings() {
 
       <div className="px-4">
         <div className="border-b border-light-grey pb-6 mb-6">
-          <div className="flex items-center mt-6">
+          <div className="flex justify-center items-center mt-6">
             {profilePic ? (
               <img
                 src={profilePic || "Profile Picture.png"}
@@ -72,11 +75,16 @@ function Settings() {
                 style={{ fontSize: 64, color: "#9ca3af" }}
               />
             )}
-            <div className="ml-6">
-              <span className="flex flex-wrap text">{fullName}</span>
-              <div className="flex items-center flex-wrap">
-                <img src="icon.svg" alt="email-icon" />
-                <p className="text-xs">{email}</p>
+            <div className="ml-6 space-y-2">
+              <span className="flex flex-wrap font-InterBold text-xl">{fullName}</span>
+              <div className="flex items-center gap-1 flex-wrap">
+                {email && (
+                  <MailOutlineOutlinedIcon
+                    className="text-dark-grey"
+                    style={{ width: "16px", height: "16px" }}
+                  />
+                )}
+                <p className="text-xs text-dark-grey">{email}</p>
               </div>
             </div>
           </div>
@@ -106,7 +114,7 @@ function Settings() {
           }}
         >
           <div className="flex items-center gap-3">
-            <img src="text-size.svg" alt="text-size-icon" />
+            <FormatSizeIcon />
             <span className="font-InterMedium">Text Size</span>
           </div>
           <span className="text-dark-grey capitalize">{textSize}</span>
@@ -124,7 +132,7 @@ function Settings() {
       </div> */}
 
         <button className="flex items-center gap-3 mt-2">
-          <img src="logout.svg" alt="#Logout" />
+          <LogoutIcon className="text-delete-red" />
           <span className="text-[#CE3A54] font-InterMedium">Log Out</span>
         </button>
       </div>

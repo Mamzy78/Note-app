@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navigator from "../../components/navigator";
+import Backbtn from "../../components/button/backbtn";
+import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 
 function Search() {
   const [query, setQuery] = useState("");
@@ -24,14 +26,14 @@ function Search() {
   return (
     <div className="h-screen max-w-md mx-auto relative">
       <div className="px-4">
-        <div className="flex pt-6">
-        <img className="mr-3" src="Back.svg" alt="Back" />
+        <div className="flex items-center pt-6">
+        <Backbtn className="mr-3" />
         <input
           type="search"
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="rounded-lg h-9 bg-light-grey p-4 w-full outline-none focus:ring-0"
+          className="rounded-md h-9 bg-[#EFEEF0] p-4 w-full outline-none focus:ring-0"
         />
       </div>
 

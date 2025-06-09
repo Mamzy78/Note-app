@@ -86,7 +86,7 @@ const handleFileChange = (event) => {
           <Backbtn onClick={ClickHandler} className="z-10">
             <p className="text-purple-color-app font-InterMedium">Back</p>
           </Backbtn>
-          <p className="absolute left-1/2 transform -translate-x-1/2 text-center pointer-events-none">
+          <p className="absolute left-1/2 transform -translate-x-1/2 text-center pointer-events-none font-InterMedium">
             Edit Profile
           </p>
         </div>
@@ -121,7 +121,7 @@ const handleFileChange = (event) => {
 
           {/* Full Name */}
           <div className="mt-6">
-            <p className="mb-3">Full Name</p>
+            <p className="mb-3 font-InterMedium">Full Name</p>
             <input
               type="text"
               placeholder="Your Name"
@@ -133,7 +133,7 @@ const handleFileChange = (event) => {
 
           {/* Email */}
           <div className="mt-8">
-            <p className="mb-3">Email</p>
+            <p className="mb-3 font-InterMedium">Email</p>
             <input
               type="email"
               placeholder="Email"
@@ -145,7 +145,7 @@ const handleFileChange = (event) => {
 
           {/* Mobile */}
           <div className="mt-8">
-            <p className="mb-3">Mobile</p>
+            <p className="mb-3 font-InterMedium">Mobile</p>
             <input
               type="text"
               placeholder="Phone Number"

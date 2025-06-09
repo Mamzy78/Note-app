@@ -31,7 +31,7 @@ function MyModal({
             >
               <img src="/x.svg" alt="Close" className="w-4 h-4" />
             </button>
-            <p className="text-dark-grey mt-6 mb-4">CHANGE BACKGROUND</p>
+            <p className="text-dark-grey mt-6 mb-4 text-[10px]">CHANGE BACKGROUND</p>
 
             <div className="flex justify-between pb-9 border-b">
               <button

@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Btn from "../../components/button/btn";
 import { useNavigate } from "react-router-dom";
 import Backbtn from "../../components/button/backbtn";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 function Verification() {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Verification() {
         }
     };
 
-    const clickHandler = () => {
+    const loginHandler = () => {
         if (isOtpCorrect) {
             navigate("/");
         }
@@ -73,7 +74,7 @@ function Verification() {
             <div className="absolute bottom-14 right-0 w-full px-4">
                 <Btn 
                     className={isOtpCorrect ? 'bg-purple-color-app text-white font-InterMedium' : 'bg-gray-300 text-white'}
-                    onClick={clickHandler}
+                    onClick={loginHandler}
                     disabled={!isOtpCorrect}
                 >
                     Login

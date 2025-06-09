@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import Backbtn from "../../components/button/backbtn";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import MyModal from "../../components/modal/customizenotemoda;/modal";
 
 function EditNote() {
-  const { noteID } = useParams(); 
+  const { noteID } = useParams();
   const navigate = useNavigate();
+  const location = useLocation()
 
   const [note, setNote] = useState(null);
   const [noteSource, setNoteSource] = useState("notes");
@@ -61,6 +63,14 @@ function EditNote() {
     setBackgroundColor(color);
   }
 
+  function backHandler() {
+    if (location.key !== "default") {
+      navigate(-1)
+    } else {
+      navigate("/")
+    }
+  }
+
   if (!note) return null;
 
   function handleDelete() {
@@ -75,7 +85,10 @@ function EditNote() {
       className="relative max-w-md mx-auto p-4 min-h-screen"
       style={{ backgroundColor }}
     >
-      <h1 className="text-2xl font-bold mb-4">Edit Note</h1>
+      <div className="relative">
+        <h1 className="text-center text-2xl font-bold mb-4">Edit Note</h1>
+        <Backbtn className="absolute top-0 bottom-0 font-InterMedium text-purple-color-app" onClick={backHandler}>Back</Backbtn>
+      </div>
 
       <input
         className="border p-2 mb-4 w-full rounded"
