@@ -5,13 +5,13 @@ import MyModal from "../../components/modal/customizenotemoda;/modal";
 import Backbtn from "../../components/button/backbtn";
 import PinnedModal from "../../components/modal/pinnedmodal/PinnedModal";
 import { v4 as uuidv4 } from "uuid";
-import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
+import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 
 function Newnote() {
   const [isCustomizeModalOpen, setIsCustomizeModalOpen] = useState(false);
-  const [title, setTitle] = useState(""); 
-  const [content, setContent] = useState(""); 
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
   const [isPinnedModalopen, setPinnedModalOpen] = useState(false);
 
@@ -43,7 +43,7 @@ function Newnote() {
     pinnedNotes.push(newNote);
     localStorage.setItem("pinnedNotes", JSON.stringify(pinnedNotes));
 
-    setPinnedModalOpen(true); // فقط مدال رو باز می‌کنیم
+    setPinnedModalOpen(true);
     setTitle("");
     setContent("");
   }
@@ -101,14 +101,18 @@ function Newnote() {
       />
 
       <div className="flex items-center justify-between border-t absolute bottom-0 w-full h-12 pl-4">
-        <p className="text-xs">Last edited: {new Date().toLocaleTimeString()}</p>
+        <p className="text-xs">
+          Last edited: {new Date().toLocaleTimeString()}
+        </p>
         <div className="flex items-center">
-          <button
-            className="flex items-center justify-center h-12 w-12"
-            onClick={handleConfirm}
-          >
-            <BookmarkBorderOutlinedIcon className="w-6 h-6 text-[#180E25]" />
-          </button>
+          {isNoteValid && (
+            <button
+              className="flex items-center justify-center h-12 w-12"
+              onClick={handleConfirm}
+            >
+              <BookmarkBorderOutlinedIcon className="w-6 h-6 text-[#180E25]" />
+            </button>
+          )}
           <button
             onClick={toggleModal}
             className="flex items-center justify-center bg-purple-color-app h-12 w-12"

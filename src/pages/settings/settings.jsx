@@ -6,8 +6,7 @@ import { useState, useEffect } from "react";
 import TextSizeModal from "../../components/modal/textSizeModal/TextSizeModal";
 import Navigator from "../../components/navigator";
 import { getImageFromIndexedDB } from "../../utils/IndexedDB";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 function Settings() {
   const [showModal, setShowModal] = useState(false);
@@ -64,12 +63,14 @@ function Settings() {
           <div className="flex items-center mt-6">
             {profilePic ? (
               <img
-              src={profilePic || "Profile Picture.png"}
-              alt="profile"
-              className="w-16 h-16 object-cover rounded-full"
-            />
+                src={profilePic || "Profile Picture.png"}
+                alt="profile"
+                className="w-16 h-16 object-cover rounded-full"
+              />
             ) : (
-              <AccountCircleOutlinedIcon style={{ fontSize: 64, color: '#9ca3af' }} />
+              <AccountCircleOutlinedIcon
+                style={{ fontSize: 64, color: "#9ca3af" }}
+              />
             )}
             <div className="ml-6">
               <span className="flex flex-wrap text">{fullName}</span>
@@ -84,7 +85,9 @@ function Settings() {
             onClick={EditNavigate}
           >
             <img src="pencil-alt.svg" alt="edit-svg" />
-            <p className="text-purple-color-app ml-2 font-InterMedium">Edit Profile</p>
+            <p className="text-purple-color-app ml-2 font-InterMedium">
+              Edit Profile
+            </p>
           </Btn>
         </div>
       </div>
