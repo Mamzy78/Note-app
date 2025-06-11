@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Backbtn from "../../components/button/backbtn";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import MyModal from "../../components/modal/customizenotemoda;/modal";
+import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import CheckIcon from "@mui/icons-material/Check";
 
 function EditNote() {
   const { noteID } = useParams();
   const navigate = useNavigate();
-  const location = useLocation()
 
   const [note, setNote] = useState(null);
   const [noteSource, setNoteSource] = useState("notes");
@@ -38,6 +41,35 @@ function EditNote() {
     }
   }, [noteID, navigate]);
 
+  function togglePinStatus() {
+    const pinnedNotes = JSON.parse(localStorage.getItem("pinnedNotes")) || [];
+    const notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+    const currentNote = {
+      id: noteID,
+      title,
+      content,
+      backgroundColor,
+      timestamp: new Date().toLocaleString(),
+    };
+
+    if (noteSource === "pinnedNotes") {
+      // انتقال از pinned به notes
+      const updatedPinned = pinnedNotes.filter((n) => n.id !== noteID);
+      const updatedNotes = [...notes, currentNote];
+      localStorage.setItem("pinnedNotes", JSON.stringify(updatedPinned));
+      localStorage.setItem("notes", JSON.stringify(updatedNotes));
+      setNoteSource("notes");
+    } else {
+      // انتقال از notes به pinned
+      const updatedNotes = notes.filter((n) => n.id !== noteID);
+      const updatedPinned = [...pinnedNotes, currentNote];
+      localStorage.setItem("notes", JSON.stringify(updatedNotes));
+      localStorage.setItem("pinnedNotes", JSON.stringify(updatedPinned));
+      setNoteSource("pinnedNotes");
+    }
+  }
+
   function handleSave() {
     const notesFromStorage = JSON.parse(localStorage.getItem(noteSource)) || [];
     const updatedNotes = notesFromStorage.map((n) =>
@@ -63,14 +95,6 @@ function EditNote() {
     setBackgroundColor(color);
   }
 
-  function backHandler() {
-    if (location.key !== "default") {
-      navigate(-1)
-    } else {
-      navigate("/")
-    }
-  }
-
   if (!note) return null;
 
   function handleDelete() {
@@ -87,7 +111,9 @@ function EditNote() {
     >
       <div className="relative">
         <h1 className="text-center text-2xl font-bold mb-4">Edit Note</h1>
-        <Backbtn className="absolute top-0 bottom-0 font-InterMedium text-purple-color-app" onClick={backHandler}>Back</Backbtn>
+        <Backbtn className="absolute top-0 bottom-0 font-InterMedium text-purple-color-app">
+          Back
+        </Backbtn>
       </div>
 
       <input
@@ -106,27 +132,42 @@ function EditNote() {
       />
 
       {/* نوار پایین ثابت */}
-      <div className="flex items-center justify-between border-t absolute bottom-0 left-0 w-full h-12 px-4 bg-white">
+      <div className="flex items-center justify-between border-t absolute bottom-0 left-0 w-full h-12 pl-4 bg-white">
         <p className="text-sm text-gray-600">
           Last edited: {new Date().toLocaleTimeString()}
         </p>
 
         <div className="flex items-center space-x-2">
-          <button
-            className="flex items-center justify-center h-10 w-10 rounded hover:bg-gray-200"
-            onClick={handleSave}
-            title="Save Note"
-          >
-            <img src="/bookmark.svg" alt="Save" />
-          </button>
+          {title && content && (
+            <>
+              <button
+                className="flex items-center justify-center h-12 w-10"
+                onClick={togglePinStatus}
+                title={noteSource === "pinnedNotes" ? "Unpin" : "Pin"}
+              >
+                {noteSource === "pinnedNotes" ? (
+                  <BookmarkIcon />
+                ) : (
+                  <BookmarkBorderOutlinedIcon />
+                )}
+              </button>
+
+              <button
+                className="flex justify-center items-center h-12 w-12 bg-purple-color-app hover:bg-purple-700"
+                onClick={handleSave}
+              >
+                <CheckIcon className="text-white" />
+              </button>
+            </>
+          )}
 
           <button
             onClick={toggleModal}
-            className="flex items-center justify-center h-10 w-10 rounded bg-purple-600 hover:bg-purple-700"
-            title="Customize"
+            className="flex items-center justify-center bg-purple-color-app h-12 w-12"
           >
-            <img src="/dots-horizontal.svg" alt="Customize" />
+            <MoreHorizOutlinedIcon className="h-6 w-6 text-white" />
           </button>
+
         </div>
       </div>
 

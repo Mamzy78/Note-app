@@ -21,12 +21,6 @@ function Profile() {
   const storedMobile = localStorage.getItem("userPhoneNumber") || "";
   const storedEmail = localStorage.getItem("userEmail") || "";
 
-  console.log("Loaded from localStorage:", {
-    storedFullName,
-    storedMobile,
-    storedEmail
-  });
-
   setFullName(storedFullName);
   setEmail(storedEmail);
   setMobile(storedMobile);
@@ -39,9 +33,6 @@ function Profile() {
   });
 }, []);
 
-
-
-  // تغییر عکس
   const [selectedImageFile, setSelectedImageFile] = useState(null);
 
 const handleFileChange = (event) => {
@@ -53,12 +44,10 @@ const handleFileChange = (event) => {
   }
 };
 
-  // کلیک روی ویرایش عکس
   const handleClick = () => {
     fileInputRef.current.click();
   };
 
-  // ذخیره اطلاعات
   const saveUserEditInfos = () => {
   localStorage.setItem("userFullName", fullName);
   localStorage.setItem("userMobile", mobile);
@@ -73,17 +62,13 @@ const handleFileChange = (event) => {
   }
 };
 
-  // بازگشت
-  const ClickHandler = () => {
-    navigate("/settings");
-  };
 
   return (
     <div className="flex flex-col justify-between h-screen max-w-md mx-auto relative">
       <div>
         {/* Header */}
         <div className="relative h-12 border-b px-4 flex items-center">
-          <Backbtn onClick={ClickHandler} className="z-10">
+          <Backbtn className="z-10">
             <p className="text-purple-color-app font-InterMedium">Back</p>
           </Backbtn>
           <p className="absolute left-1/2 transform -translate-x-1/2 text-center pointer-events-none font-InterMedium">
@@ -96,7 +81,7 @@ const handleFileChange = (event) => {
           <div className="flex flex-col items-center mt-6 border-b pb-6">
             {profilePic ? (
               <img
-              src={profilePic} // عکس پیش‌فرض
+              src={profilePic} // default img
               alt="Profile"
               className="h-[120px] w-[120px] object-cover rounded-full"
             />

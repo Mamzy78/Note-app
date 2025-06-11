@@ -14,7 +14,7 @@ function Navigator() {
   const currentPath = location.pathname;
 
   return (
-    <div className="absolute bottom-0 w-full z-50">
+    <div className="absolute bottom-0 w-full z-40">
       <div className="flex justify-center bg-light-grey">
         <button
           className="absolute z-30 bottom-12 h-16 w-16 p-4 bg-purple-color-app rounded-full"

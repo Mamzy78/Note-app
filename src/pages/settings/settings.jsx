@@ -41,11 +41,6 @@ function Settings() {
   };
   const navigate = useNavigate();
 
-  function ClickHandler() {
-    console.log("click");
-    navigate("/");
-  }
-
   function EditNavigate() {
     navigate("/profile");
   }
@@ -53,7 +48,7 @@ function Settings() {
   return (
     <div className="h-screen max-w-md mx-auto relative">
       <div className="h-12 border-b px-4 flex items-center">
-        <Backbtn onClick={ClickHandler}>
+        <Backbtn>
           <p className="text-purple-color-app font-InterMedium">Back</p>
         </Backbtn>
         <p className="absolute left-1/2 transform -translate-x-1/2 text-center font-InterMedium pointer-events-none">
@@ -105,8 +100,7 @@ function Settings() {
           <span className="text-[10px] text-dark-grey">APP SETTINGS</span>
         </div>
 
-        <a
-          href="#"
+        <span
           className="flex justify-between border-b border-light-grey pb-2"
           onClick={(e) => {
             e.preventDefault();
@@ -118,7 +112,7 @@ function Settings() {
             <span className="font-InterMedium">Text Size</span>
           </div>
           <span className="text-dark-grey capitalize">{textSize}</span>
-        </a>
+        </span>
 
         <TextSizeModal
           isOpen={showModal}
@@ -126,10 +120,6 @@ function Settings() {
           selectedSize={textSize}
           onSelect={handleSelect}
         />
-
-        {/* <div>
-        <input type="file" />
-      </div> */}
 
         <button className="flex items-center gap-3 mt-2">
           <LogoutIcon className="text-delete-red" />

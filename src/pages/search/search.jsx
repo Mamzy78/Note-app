@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Navigator from "../../components/navigator";
-import Backbtn from "../../components/button/backbtn";
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Search() {
   const [query, setQuery] = useState("");
   const [allNotes, setAllNotes] = useState([]);
   const [filteredNotes, setFilteredNotes] = useState([]);
+  const location = useLocation()
+  const navigat = useNavigate()
+  function backHandler() {
+    location.key !== "default" ? navigat(-1) : navigat("/")
+  }
 
   useEffect(() => {
     const notes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -27,7 +32,7 @@ function Search() {
     <div className="h-screen max-w-md mx-auto relative">
       <div className="px-4">
         <div className="flex items-center pt-6">
-        <Backbtn className="mr-3" />
+        <ArrowBackIosOutlinedIcon className="mr-3 cursor-pointer" style={{width:"20px", height:"20px"}} onClick={backHandler} />
         <input
           type="search"
           placeholder="Search..."

@@ -7,8 +7,10 @@ import PinnedModal from "../../components/modal/pinnedmodal/PinnedModal";
 import { v4 as uuidv4 } from "uuid";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import CheckIcon from "@mui/icons-material/Check";
 
 function Newnote() {
+  const navigate = useNavigate();
   const [isCustomizeModalOpen, setIsCustomizeModalOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -24,11 +26,6 @@ function Newnote() {
   }[preferredSize];
 
   const toggleModal = () => setIsCustomizeModalOpen(!isCustomizeModalOpen);
-  const navigate = useNavigate();
-
-  function NavigateHandler() {
-    navigate("/");
-  }
 
   function handleConfirm() {
     const newNote = {
@@ -56,33 +53,9 @@ function Newnote() {
         isCustomizeModalOpen ? "opacity-50 pointer-events-none" : ""
       }`}
     >
-      {/* دکمه‌ی تایید */}
-
-      {isNoteValid && (
-        <button
-          className="absolute right-4 bottom-20 bg-purple-500 text-white px-4 py-2 rounded"
-          onClick={() => {
-            const newNote = {
-              id: uuidv4(),
-              title,
-              content,
-              timestamp: new Date().toLocaleString(),
-              backgroundColor,
-            };
-            const notes = JSON.parse(localStorage.getItem("notes")) || [];
-            notes.push(newNote);
-            localStorage.setItem("notes", JSON.stringify(notes));
-            setTitle("");
-            setContent("");
-            navigate("/");
-          }}
-        >
-          Confirm
-        </button>
-      )}
 
       <div className="flex justify-start border-b h-12 px-4 mb-6">
-        <Backbtn onClick={NavigateHandler}>
+        <Backbtn>
           <p className="text-purple-color-app font-InterMedium">Back</p>
         </Backbtn>
       </div>
@@ -104,14 +77,36 @@ function Newnote() {
         <p className="text-xs">
           Last edited: {new Date().toLocaleTimeString()}
         </p>
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
           {isNoteValid && (
-            <button
-              className="flex items-center justify-center h-12 w-12"
-              onClick={handleConfirm}
-            >
-              <BookmarkBorderOutlinedIcon className="w-6 h-6 text-[#180E25]" />
-            </button>
+            <>
+              <button
+                className="flex items-center justify-center h-12 w-10"
+                onClick={handleConfirm}
+              >
+                <BookmarkBorderOutlinedIcon className="w-6 h-6 text-[#180E25]" />
+              </button>
+              <button
+                className="flex justify-center items-center h-12 w-12 bg-purple-color-app hover:bg-purple-700"
+                onClick={() => {
+                  const newNote = {
+                    id: uuidv4(),
+                    title,
+                    content,
+                    timestamp: new Date().toLocaleString(),
+                    backgroundColor,
+                  };
+                  const notes = JSON.parse(localStorage.getItem("notes")) || [];
+                  notes.push(newNote);
+                  localStorage.setItem("notes", JSON.stringify(notes));
+                  setTitle("");
+                  setContent("");
+                  navigate("/");
+                }}
+              >
+                <CheckIcon className="text-white" />
+              </button>
+            </>
           )}
           <button
             onClick={toggleModal}
