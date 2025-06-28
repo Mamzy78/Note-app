@@ -10,7 +10,7 @@ export default function TextSizeModal({ isOpen, onClose, selectedSize, onSelect 
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50" onClick={onClose}>
       <div className="bg-white p-4 rounded-lg w-72 shadow-xl">
         <h2 className="text-lg font-bold mb-4">Select Text Size</h2>
         <div className="space-y-3">

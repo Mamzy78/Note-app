@@ -34,3 +34,16 @@ export function getImageFromIndexedDB() {
     });
   });
 }
+
+export function deleteImageFromIndexedDB() {
+  return openDatabase().then(db => {
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction("profile", "readwrite");
+      const store = tx.objectStore("profile");
+      const request = store.delete("profileImage"); // ← این متد حذف کلید خاصه
+      request.onsuccess = () => resolve(true);
+      request.onerror = () => reject("Failed to delete image from IndexedDB");
+    });
+  });
+}
+

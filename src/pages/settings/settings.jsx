@@ -4,6 +4,7 @@ import Btn from "../../components/button/btn";
 import Backbtn from "../../components/button/backbtn";
 import { useState, useEffect } from "react";
 import TextSizeModal from "../../components/modal/textSizeModal/TextSizeModal";
+import LogoutModal from "../../components/modal/logout/LogoutModal";
 import Navigator from "../../components/navigator";
 import { getImageFromIndexedDB } from "../../utils/IndexedDB";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -13,6 +14,7 @@ import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 
 function Settings() {
   const [showModal, setShowModal] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false)
   const [textSize, setTextSize] = useState(
     localStorage.getItem("preferredTextSize") || "medium"
   );
@@ -121,10 +123,15 @@ function Settings() {
           onSelect={handleSelect}
         />
 
-        <button className="flex items-center gap-3 mt-2">
+        <button className="flex items-center gap-3 mt-2 w-full" onClick={e => {
+          e.preventDefault()
+          setLogoutModal(true)
+        }}>
           <LogoutIcon className="text-delete-red" />
           <span className="text-[#CE3A54] font-InterMedium">Log Out</span>
         </button>
+
+        <LogoutModal isOpen={logoutModal} onClose={() => setLogoutModal(false)}/>
       </div>
 
       <Navigator className="fixed bottom-0 left-0 w-full" />
