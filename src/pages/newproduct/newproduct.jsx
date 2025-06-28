@@ -27,6 +27,13 @@ function Newnote() {
 
   const toggleModal = () => setIsCustomizeModalOpen(!isCustomizeModalOpen);
 
+  const clearNoteInputs = () => {
+    if (title || content) {
+      setTitle("")
+      setContent("")
+    }
+  }
+
   function handleConfirm() {
     const newNote = {
       id: uuidv4(),
@@ -128,6 +135,7 @@ function Newnote() {
               setBackgroundColor(color);
               toggleModal();
             }}
+            onDelete={clearNoteInputs}
           />,
           document.body
         )}
