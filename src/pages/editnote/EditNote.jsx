@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Backbtn from "../../components/button/backbtn";
 import { useParams, useNavigate } from "react-router-dom";
-import MyModal from "../../components/modal/customizenotemoda;/modal";
+import MyModal from "../../components/modal/costumizenote/CostumizeNoteModal";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";

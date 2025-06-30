@@ -1,6 +1,7 @@
 import React from "react";
+import CloseIcon from '@mui/icons-material/Close';
 
-function MyModal({
+function CostumizeNoteModal({
   isCustomizeModalOpen,
   toggleModal,
   onColorSelect,
@@ -27,9 +28,9 @@ function MyModal({
             {/* Close button inside modal */}
             <button
               onClick={toggleModal}
-              className="flex justify-center items-center absolute right-5 bg-slate-200 rounded-full w-6 h-6"
+              className="flex justify-center items-center absolute right-5 bg-[#EFEEF0] rounded-full w-6 h-6"
             >
-              <img src="/x.svg" alt="Close" className="w-4 h-4" />
+              <CloseIcon className="text-dark-grey" style={{width:"16px", height:"16px"}} />
             </button>
             <p className="text-dark-grey mt-6 mb-4 text-[10px]">CHANGE BACKGROUND</p>
 
@@ -98,4 +99,4 @@ function MyModal({
   );
 }
 
-export default MyModal;
+export default CostumizeNoteModal;

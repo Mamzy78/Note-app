@@ -7,6 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import AddIcon from '@mui/icons-material/Add';
 
 function Navigator() {
   const navigate = useNavigate();
@@ -17,10 +18,10 @@ function Navigator() {
     <div className="absolute bottom-0 w-full z-40">
       <div className="flex justify-center bg-light-grey">
         <button
-          className="absolute z-30 bottom-12 h-16 w-16 p-4 bg-purple-color-app rounded-full"
+          className="flex justify-center items-center absolute z-30 bottom-12 h-16 w-16 p-4 bg-purple-color-app rounded-full"
           onClick={() => navigate("/newproduct")}
         >
-          <img className="h-8 w-8" src="plus.svg" alt="#add" />
+          <AddIcon className="text-white" style={{height:"40px", width:"40px"}} />
         </button>
         <span
           className={`absolute bottom-10 z-20 h-20 w-20 bg-light-grey rounded-full ${

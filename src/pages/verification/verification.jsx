@@ -1,13 +1,14 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext  } from "react";
 import Btn from "../../components/button/btn";
 import { useNavigate } from "react-router-dom";
 import Backbtn from "../../components/button/backbtn";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import { AuthContext } from "../../context/AuthContext";
 
 function Verification() {
     const navigate = useNavigate();
-    const [otp, setOtp] = useState(new Array(6).fill(""));
-    const inputRefs = useRef([]);
+  const [otp, setOtp] = useState(new Array(6).fill(""));
+  const inputRefs = useRef([]);
+  const { setIsVerified } = useContext(AuthContext);
 
     const correctOtp = "123456";
     const otpString = otp.join("");
@@ -34,6 +35,7 @@ function Verification() {
 
     const loginHandler = () => {
         if (isOtpCorrect) {
+            setIsVerified(true);
             navigate("/");
         }
     };
@@ -51,7 +53,7 @@ function Verification() {
             </div>
             <div className="mb-16">
                 <h1 className="text-[32px] mb-4 leading-10 font-InterBold">Enter Verification Code</h1>
-                <h2 className="text-slate-500">Insert your code sent via SMS</h2>
+                <h2 className="text-dark-grey">Insert your code sent via SMS</h2>
             </div>
             <div>
                 <p className="mb-3 font-InterMedium">OTP code</p>
@@ -73,7 +75,7 @@ function Verification() {
             </div>
             <div className="absolute bottom-14 right-0 w-full px-4">
                 <Btn 
-                    className={isOtpCorrect ? 'bg-purple-color-app text-white font-InterMedium' : 'bg-gray-300 text-white'}
+                    className={isOtpCorrect ? 'bg-purple-color-app text-white font-InterMedium' : 'bg-mid-grey text-white'}
                     onClick={loginHandler}
                     disabled={!isOtpCorrect}
                 >

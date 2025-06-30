@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useNavigate } from "react-router-dom";
-import MyModal from "../../components/modal/customizenotemoda;/modal";
+import CostumizeNoteModal from "../../components/modal/costumizenote/CostumizeNoteModal";
 import Backbtn from "../../components/button/backbtn";
 import PinnedModal from "../../components/modal/pinnedmodal/PinnedModal";
 import { v4 as uuidv4 } from "uuid";
@@ -44,7 +44,7 @@ function Newnote() {
     };
 
     const pinnedNotes = JSON.parse(localStorage.getItem("pinnedNotes")) || [];
-    pinnedNotes.push(newNote);
+    pinnedNotes.unshift(newNote);
     localStorage.setItem("pinnedNotes", JSON.stringify(pinnedNotes));
 
     setPinnedModalOpen(true);
@@ -104,7 +104,7 @@ function Newnote() {
                     backgroundColor,
                   };
                   const notes = JSON.parse(localStorage.getItem("notes")) || [];
-                  notes.push(newNote);
+                  notes.unshift(newNote);
                   localStorage.setItem("notes", JSON.stringify(notes));
                   setTitle("");
                   setContent("");
@@ -127,7 +127,7 @@ function Newnote() {
       {/* مودال */}
       {isCustomizeModalOpen &&
         ReactDOM.createPortal(
-          <MyModal
+          <CostumizeNoteModal
             className="absolute top-25"
             isCustomizeModalOpen={isCustomizeModalOpen}
             toggleModal={toggleModal}

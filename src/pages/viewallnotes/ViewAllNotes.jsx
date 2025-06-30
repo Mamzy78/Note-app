@@ -18,13 +18,8 @@ export default function ViewAllNotes() {
     const pinnedNotes = JSON.parse(localStorage.getItem("pinnedNotes")) || [];
     const allNotes = JSON.parse(localStorage.getItem("notes")) || [];
 
-    // if (noteType === "pinned") {
-    //   setNotes(pinnedNotes);
-    // } else {
-    //   setNotes(allNotes);
-    // }
     setNotes(noteType === "pinned" ? pinnedNotes : allNotes);
-    // noteType === "pinned" ? setNotes(pinnedNotes) : setNotes(allNotes);
+    
   }, [noteType]);
 
   return (
