@@ -12,12 +12,11 @@ export default function LogoutModal({ isOpen, onClose }) {
 
   try {
     await deleteImageFromIndexedDB();
-    console.log("Image deleted from IndexedDB");
   } catch (err) {
     console.error(err);
   }
 
-  navigate("/login", { replace: true} );
+  navigate("/intro", { replace: true} );
 };
 
 

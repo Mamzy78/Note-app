@@ -54,7 +54,7 @@ export default function ViewAllNotes() {
         ))}
       </div>
 
-      <Navigator className="fixed bottom-0 left-0 w-full" />
+      <Navigator className="sticky bottom-0 left-0 w-full" />
     </div>
   );
 }

@@ -23,6 +23,8 @@ function Navigator() {
         >
           <AddIcon className="text-white" style={{height:"40px", width:"40px"}} />
         </button>
+        
+        {/* handling the add background color */}
         <span
           className={`absolute bottom-10 z-20 h-20 w-20 bg-light-grey rounded-full ${
             !["/search", "/settings"].includes(currentPath)

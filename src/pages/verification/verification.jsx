@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext  } from "react";
+import React, { useState, useEffect , useRef, useContext  } from "react";
 import Btn from "../../components/button/btn";
 import { useNavigate } from "react-router-dom";
 import Backbtn from "../../components/button/backbtn";
@@ -13,6 +13,10 @@ function Verification() {
     const correctOtp = "123456";
     const otpString = otp.join("");
     const isOtpCorrect = otpString === correctOtp;
+
+    useEffect(() => {
+        inputRefs.current[0]?.focus()
+    }, [])
 
     const handleOtpChange = (event, index) => {
         const value = event.target.value;
@@ -40,14 +44,14 @@ function Verification() {
         }
     };
 
-    const ClickHandler = () => {
+    const backHandler = () => {
         navigate("/login");
     };
 
     return (
         <div className="flex flex-col justify-center bg-light-grey h-screen max-w-md mx-auto relative px-4">
             <div className="flex absolute top-2 w-full h-12">
-                <Backbtn onClick={ClickHandler}>
+                <Backbtn onClick={backHandler}>
                     <p className="text-purple-color-app font-InterMedium">Back to Login</p>
                 </Backbtn>
             </div>
@@ -69,6 +73,7 @@ function Verification() {
                             value={digit}
                             onChange={(e) => handleOtpChange(e, index)}
                             onKeyDown={(e) => handleKeyDown(e, index)}
+                            onFocus={e => e.target.placeholder = ""}
                         />
                     ))}
                 </div>

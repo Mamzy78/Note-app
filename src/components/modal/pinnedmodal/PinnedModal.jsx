@@ -1,4 +1,5 @@
 import React from "react";
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function PinnedModal({ isPinnedModalOpen, togglePinnedModal }) {
   if (!isPinnedModalOpen) return null;
@@ -20,9 +21,9 @@ export default function PinnedModal({ isPinnedModalOpen, togglePinnedModal }) {
           {/* Close button (X) */}
           <button
             onClick={togglePinnedModal}
-            className="absolute right-5 top-5 bg-slate-200 rounded-full p-1"
+            className="flex justify-center items-center absolute right-5 top-5 bg-slate-200 rounded-full p-1"
           >
-            <img src="/x.svg" alt="Close" className="w-4 h-4" />
+            <CloseIcon className="text-dark-grey" style={{width: "16px", height:"16px"}} />
           </button>
 
           <img
