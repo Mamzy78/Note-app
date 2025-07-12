@@ -13,9 +13,9 @@ function Intro() {
     return(
     <div className="bg-purple-color-app relative max-w-md m-auto font-InterBold">
         <div className="flex flex-col text-center m-auto pt-20 min-h-screen">
-            <img src='Illustration.svg' alt="battery" className=" px-10"/>
+            <img src='/images/Illustration.svg' alt="battery" className=" px-10"/>
             <p className="leading-7 text-white text-left text-xl px-4 py-7">Jot Down anything you want to achieve, today or in the future</p>
-            <img src='Indicator.svg' alt="indicator" className="m-auto mt-9"/>
+            <img src='/images/Indicator.svg' alt="indicator" className="m-auto mt-9"/>
         </div>
         <div className="absolute bottom-14 right-0 w-full px-4">
             <Btn className={'bg-white text-white w-full'} onClick={clickHandler}>

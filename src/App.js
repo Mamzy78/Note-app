@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
 import Login from "./pages/login/login";
 import Verification from "./pages/verification/verification";
 import Intro from "./pages/introduction/introduction";
@@ -12,7 +11,6 @@ import Profile from "./pages/profile/profile";
 import EditNote from "./pages/editnote/EditNote";
 import ViewAllNotes from "./pages/viewallnotes/ViewAllNotes";
 import Finished from "./pages/finished/Finished";
-
 import { AuthContext } from "./context/AuthContext";
 
 export default function App() {

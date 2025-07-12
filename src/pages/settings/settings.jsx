@@ -89,7 +89,7 @@ function Settings() {
             className="flex items-center justify-center bg-white border-2 border-purple-color-app h-[38px]"
             onClick={EditNavigate}
           >
-            <img src="pencil-alt.svg" alt="edit-svg" />
+            <img src="/images/pencil-alt.svg" alt="edit-svg" />
             <p className="text-purple-color-app ml-2 font-InterMedium">
               Edit Profile
             </p>

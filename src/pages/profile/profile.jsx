@@ -99,7 +99,7 @@ const handleFileChange = (event) => {
               className="flex items-center justify-center bg-white border-2 border-purple-color-app w-44 mt-2"
               onClick={handleClick}
             >
-              <img src="pencil-alt.svg" alt="edit" />
+              <img src="/images/pencil-alt.svg" alt="edit" />
               <p className="text-purple-color-app ml-2">Edit Image</p>
             </Btn>
           </div>

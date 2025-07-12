@@ -34,7 +34,7 @@ function Main() {
         <>
           <img
             className="mb-6 leading-10 h-60"
-            src="Illustration(2).svg"
+            src="/images/Illustration(2).svg"
             alt="main-pic"
           />
           <div className="px-20">
@@ -46,7 +46,7 @@ function Main() {
               start your journey!
             </p>
           </div>
-          <img className="mt-5 h-36 w-full" src="Arrow.svg" alt="down" />
+          <img className="mt-5 h-36 w-full" src="/images/Arrow.svg" alt="down" />
         </>
       ) : (
         <>

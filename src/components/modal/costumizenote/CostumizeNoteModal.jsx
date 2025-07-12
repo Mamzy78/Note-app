@@ -86,7 +86,7 @@ function CostumizeNoteModal({
                   toggleModal();
                 }}
               >
-                <img src="/trash.svg" alt="Delete" />
+                <img src="/images/trash.svg" alt="Delete" />
                 <span className="text-delete-red font-InterMedium">
                   Delete Note
                 </span>

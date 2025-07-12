@@ -26,7 +26,7 @@ export default function ViewAllNotes() {
     <div className="h-screen max-w-md mx-auto relative">
       <div className="flex justify-between min-h-[160px] bg-purple-color-app px-4">
         <span className="text-white mt-6 text-xl">All Notes</span>
-        <img src="illustration(4).svg" alt="" />
+        <img src="/images/illustration(4).svg" alt="" />
       </div>
 
       <div className="grid grid-cols-2 gap-4 p-4">

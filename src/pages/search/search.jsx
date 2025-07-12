@@ -42,7 +42,7 @@ function Search() {
         />
       </div>
 
-      {/* نتایج جستجو */}
+      {/* query result*/}
       {query ? (
         <div className="mt-6 grid grid-cols-2 gap-4">
           {filteredNotes.map((note) => (

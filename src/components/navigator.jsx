@@ -98,7 +98,7 @@ function Navigator() {
             {currentPath === "/settings" ? (
               <SettingsIcon style={{ width: "32px", height: "32px" }} />
             ) : (
-              <img src="cog.svg" alt="#Settings" />
+              <img src="/images/cog.svg" alt="#Settings" />
             )}
             <p className="text-[10px] font-Inter">Settings</p>
           </button>
