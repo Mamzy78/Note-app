@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import AssignmentTurnedInOutlinedIcon from "@mui/icons-material/AssignmentTurnedInOutlined";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 
 function Navigator() {
   const navigate = useNavigate();
@@ -21,9 +21,12 @@ function Navigator() {
           className="flex justify-center items-center absolute z-30 bottom-12 h-16 w-16 p-4 bg-purple-color-app rounded-full"
           onClick={() => navigate("/newproduct")}
         >
-          <AddIcon className="text-white" style={{height:"40px", width:"40px"}} />
+          <AddIcon
+            className="text-white"
+            style={{ height: "40px", width: "40px" }}
+          />
         </button>
-        
+
         {/* handling the add background color */}
         <span
           className={`absolute bottom-10 z-20 h-20 w-20 bg-light-grey rounded-full ${
@@ -98,7 +101,10 @@ function Navigator() {
             {currentPath === "/settings" ? (
               <SettingsIcon style={{ width: "32px", height: "32px" }} />
             ) : (
-              <img src="/images/cog.svg" alt="#Settings" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/cog.svg"}
+                alt="#Settings"
+              />
             )}
             <p className="text-[10px] font-Inter">Settings</p>
           </button>

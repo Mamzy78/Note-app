@@ -1,4 +1,4 @@
-import React, { useState, useContext  } from "react";
+import React, { useState, useContext } from "react";
 import Btn from "../../components/button/btn";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -8,7 +8,7 @@ function Login() {
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
   const { setPhone, setIsVerified } = useContext(AuthContext);
 
-   function loginHandler() {
+  function loginHandler() {
     setPhone(userPhoneNumber);
     setIsVerified(false);
     navigate("/verification");

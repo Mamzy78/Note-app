@@ -12,7 +12,7 @@ export function openDatabase() {
 }
 
 export function saveImageToIndexedDB(blob) {
-  return openDatabase().then(db => {
+  return openDatabase().then((db) => {
     return new Promise((resolve, reject) => {
       const tx = db.transaction("profile", "readwrite");
       const store = tx.objectStore("profile");
@@ -24,7 +24,7 @@ export function saveImageToIndexedDB(blob) {
 }
 
 export function getImageFromIndexedDB() {
-  return openDatabase().then(db => {
+  return openDatabase().then((db) => {
     return new Promise((resolve, reject) => {
       const tx = db.transaction("profile", "readonly");
       const store = tx.objectStore("profile");
@@ -36,7 +36,7 @@ export function getImageFromIndexedDB() {
 }
 
 export function deleteImageFromIndexedDB() {
-  return openDatabase().then(db => {
+  return openDatabase().then((db) => {
     return new Promise((resolve, reject) => {
       const tx = db.transaction("profile", "readwrite");
       const store = tx.objectStore("profile");
@@ -46,4 +46,3 @@ export function deleteImageFromIndexedDB() {
     });
   });
 }
-

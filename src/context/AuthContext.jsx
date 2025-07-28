@@ -4,7 +4,9 @@ export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [phone, setPhone] = useState(localStorage.getItem("userPhoneNumber"));
-  const [isVerified, setIsVerified] = useState(localStorage.getItem("isVerified") === "true");
+  const [isVerified, setIsVerified] = useState(
+    localStorage.getItem("isVerified") === "true"
+  );
 
   useEffect(() => {
     if (phone) {
@@ -16,7 +18,9 @@ export function AuthProvider({ children }) {
   }, [phone, isVerified]);
 
   return (
-    <AuthContext.Provider value={{ phone, setPhone, isVerified, setIsVerified }}>
+    <AuthContext.Provider
+      value={{ phone, setPhone, isVerified, setIsVerified }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -14,7 +14,7 @@ import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 
 function Settings() {
   const [showModal, setShowModal] = useState(false);
-  const [logoutModal, setLogoutModal] = useState(false)
+  const [logoutModal, setLogoutModal] = useState(false);
   const [textSize, setTextSize] = useState(
     localStorage.getItem("preferredTextSize") || "medium"
   );
@@ -73,7 +73,9 @@ function Settings() {
               />
             )}
             <div className="ml-6 space-y-2">
-              <span className="flex flex-wrap font-InterBold text-xl">{fullName}</span>
+              <span className="flex flex-wrap font-InterBold text-xl">
+                {fullName}
+              </span>
               <div className="flex items-center gap-1 flex-wrap">
                 {email && (
                   <MailOutlineOutlinedIcon
@@ -89,7 +91,10 @@ function Settings() {
             className="flex items-center justify-center bg-white border-2 border-purple-color-app h-[38px]"
             onClick={EditNavigate}
           >
-            <img src="/images/pencil-alt.svg" alt="edit-svg" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/pencil-alt.svg"}
+              alt="edit-svg"
+            />
             <p className="text-purple-color-app ml-2 font-InterMedium">
               Edit Profile
             </p>
@@ -123,15 +128,21 @@ function Settings() {
           onSelect={handleSelect}
         />
 
-        <button className="flex items-center gap-3 mt-2 w-full" onClick={e => {
-          e.preventDefault()
-          setLogoutModal(true)
-        }}>
+        <button
+          className="flex items-center gap-3 mt-2 w-full"
+          onClick={(e) => {
+            e.preventDefault();
+            setLogoutModal(true);
+          }}
+        >
           <LogoutIcon className="text-delete-red" />
           <span className="text-[#CE3A54] font-InterMedium">Log Out</span>
         </button>
 
-        <LogoutModal isOpen={logoutModal} onClose={() => setLogoutModal(false)}/>
+        <LogoutModal
+          isOpen={logoutModal}
+          onClose={() => setLogoutModal(false)}
+        />
       </div>
 
       <Navigator className="fixed bottom-0 left-0 w-full" />

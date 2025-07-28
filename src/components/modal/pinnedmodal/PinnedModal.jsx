@@ -1,5 +1,5 @@
 import React from "react";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function PinnedModal({ isPinnedModalOpen, togglePinnedModal }) {
   if (!isPinnedModalOpen) return null;
@@ -13,7 +13,10 @@ export default function PinnedModal({ isPinnedModalOpen, togglePinnedModal }) {
       ></div>
 
       {/* Modal Content */}
-      <div className="fixed inset-0 z-50 max-w-lg mx-auto w-full flex items-end" onClick={togglePinnedModal}>
+      <div
+        className="fixed inset-0 z-50 max-w-lg mx-auto w-full flex items-end"
+        onClick={togglePinnedModal}
+      >
         <div
           className="modal-content bg-white p-5 rounded-t-lg shadow-lg w-full flex flex-col items-center relative"
           onClick={(e) => e.stopPropagation()} // جلوگیری از بسته‌شدن هنگام کلیک داخل مدال
@@ -23,7 +26,10 @@ export default function PinnedModal({ isPinnedModalOpen, togglePinnedModal }) {
             onClick={togglePinnedModal}
             className="flex justify-center items-center absolute right-5 top-5 bg-slate-200 rounded-full p-1"
           >
-            <CloseIcon className="text-dark-grey" style={{width: "16px", height:"16px"}} />
+            <CloseIcon
+              className="text-dark-grey"
+              style={{ width: "16px", height: "16px" }}
+            />
           </button>
 
           <img
@@ -31,7 +37,9 @@ export default function PinnedModal({ isPinnedModalOpen, togglePinnedModal }) {
             alt="Success"
             className="mb-4 w-32 h-32"
           />
-          <p className="text-xl text-[#180E25] font-InterBold mb-2">Notes Pinned Successfully</p>
+          <p className="text-xl text-[#180E25] font-InterBold mb-2">
+            Notes Pinned Successfully
+          </p>
           <span className="mb-4 text-[#827D89]">
             This note already displayed on pinned section
           </span>

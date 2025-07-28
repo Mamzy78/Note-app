@@ -1,5 +1,5 @@
 import React from "react";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 function CostumizeNoteModal({
   isCustomizeModalOpen,
@@ -30,9 +30,14 @@ function CostumizeNoteModal({
               onClick={toggleModal}
               className="flex justify-center items-center absolute right-5 bg-[#EFEEF0] rounded-full w-6 h-6"
             >
-              <CloseIcon className="text-dark-grey" style={{width:"16px", height:"16px"}} />
+              <CloseIcon
+                className="text-dark-grey"
+                style={{ width: "16px", height: "16px" }}
+              />
             </button>
-            <p className="text-dark-grey mt-6 mb-4 text-[10px]">CHANGE BACKGROUND</p>
+            <p className="text-dark-grey mt-6 mb-4 text-[10px]">
+              CHANGE BACKGROUND
+            </p>
 
             <div className="flex justify-between pb-9 border-b">
               <button
@@ -86,7 +91,10 @@ function CostumizeNoteModal({
                   toggleModal();
                 }}
               >
-                <img src="/images/trash.svg" alt="Delete" />
+                <img
+                  src={process.env.PUBLIC_URL + "/images/trash.svg"}
+                  alt="Delete"
+                />
                 <span className="text-delete-red font-InterMedium">
                   Delete Note
                 </span>

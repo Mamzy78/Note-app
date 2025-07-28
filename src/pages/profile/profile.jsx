@@ -2,9 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Backbtn from "../../components/button/backbtn";
 import Btn from "../../components/button/btn";
 import { useNavigate } from "react-router-dom";
-import { saveImageToIndexedDB, getImageFromIndexedDB } from "./../../utils/IndexedDB"
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import CheckIcon from '@mui/icons-material/Check';
+import {
+  saveImageToIndexedDB,
+  getImageFromIndexedDB,
+} from "./../../utils/IndexedDB";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import CheckIcon from "@mui/icons-material/Check";
 
 function Profile() {
   const navigate = useNavigate();
@@ -17,51 +20,50 @@ function Profile() {
   const [mobile, setMobile] = useState("");
 
   useEffect(() => {
-  const storedFullName = localStorage.getItem("userFullName") || "";
-  const storedMobile = localStorage.getItem("userPhoneNumber") || "";
-  const storedEmail = localStorage.getItem("userEmail") || "";
+    const storedFullName = localStorage.getItem("userFullName") || "";
+    const storedMobile = localStorage.getItem("userPhoneNumber") || "";
+    const storedEmail = localStorage.getItem("userEmail") || "";
 
-  setFullName(storedFullName);
-  setEmail(storedEmail);
-  setMobile(storedMobile);
+    setFullName(storedFullName);
+    setEmail(storedEmail);
+    setMobile(storedMobile);
 
-  getImageFromIndexedDB().then((blob) => {
-    if (blob) {
-      const imageUrl = URL.createObjectURL(blob);
-      setProfilePic(imageUrl);
-    }
-  });
-}, []);
+    getImageFromIndexedDB().then((blob) => {
+      if (blob) {
+        const imageUrl = URL.createObjectURL(blob);
+        setProfilePic(imageUrl);
+      }
+    });
+  }, []);
 
   const [selectedImageFile, setSelectedImageFile] = useState(null);
 
-const handleFileChange = (event) => {
-  const file = event.target.files[0];
-  if (file) {
-    setSelectedImageFile(file);
-    const imageUrl = URL.createObjectURL(file);
-    setProfilePic(imageUrl);
-  }
-};
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImageFile(file);
+      const imageUrl = URL.createObjectURL(file);
+      setProfilePic(imageUrl);
+    }
+  };
 
   const handleClick = () => {
     fileInputRef.current.click();
   };
 
   const saveUserEditInfos = () => {
-  localStorage.setItem("userFullName", fullName);
-  localStorage.setItem("userMobile", mobile);
-  localStorage.setItem("userEmail", email)
+    localStorage.setItem("userFullName", fullName);
+    localStorage.setItem("userMobile", mobile);
+    localStorage.setItem("userEmail", email);
 
-  if (selectedImageFile) {
-    saveImageToIndexedDB(selectedImageFile)
-      .then(() => navigate("/settings"))
-      .catch(err => console.error("Failed to save image:", err));
-  } else {
-    navigate("/settings");
-  }
-};
-
+    if (selectedImageFile) {
+      saveImageToIndexedDB(selectedImageFile)
+        .then(() => navigate("/settings"))
+        .catch((err) => console.error("Failed to save image:", err));
+    } else {
+      navigate("/settings");
+    }
+  };
 
   return (
     <div className="flex flex-col justify-between h-screen max-w-md mx-auto relative">
@@ -81,12 +83,14 @@ const handleFileChange = (event) => {
           <div className="flex flex-col items-center mt-6 border-b pb-6">
             {profilePic ? (
               <img
-              src={profilePic} // default img
-              alt="Profile"
-              className="h-[120px] w-[120px] object-cover rounded-full"
-            />
+                src={profilePic} // default img
+                alt="Profile"
+                className="h-[120px] w-[120px] object-cover rounded-full"
+              />
             ) : (
-              <AccountCircleOutlinedIcon style={{ fontSize: 64, color: '#9ca3af' }} />
+              <AccountCircleOutlinedIcon
+                style={{ fontSize: 64, color: "#9ca3af" }}
+              />
             )}
             <input
               type="file"
@@ -99,7 +103,10 @@ const handleFileChange = (event) => {
               className="flex items-center justify-center bg-white border-2 border-purple-color-app w-44 mt-2"
               onClick={handleClick}
             >
-              <img src="/images/pencil-alt.svg" alt="edit" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/pencil-alt.svg"}
+                alt="edit"
+              />
               <p className="text-purple-color-app ml-2">Edit Image</p>
             </Btn>
           </div>
@@ -144,7 +151,10 @@ const handleFileChange = (event) => {
 
       {/* Save Button */}
       <div className="px-4">
-        <Btn onClick={saveUserEditInfos} className="relative w-full bg-purple-color-app mb-8">
+        <Btn
+          onClick={saveUserEditInfos}
+          className="relative w-full bg-purple-color-app mb-8"
+        >
           <span className="text-white">Save Changes</span>
           <CheckIcon className="absolute left-5 text-white" />
         </Btn>

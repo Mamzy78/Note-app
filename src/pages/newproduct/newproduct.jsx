@@ -29,10 +29,10 @@ function Newnote() {
 
   const clearNoteInputs = () => {
     if (title || content) {
-      setTitle("")
-      setContent("")
+      setTitle("");
+      setContent("");
     }
-  }
+  };
 
   function handleConfirm() {
     const newNote = {
@@ -60,7 +60,6 @@ function Newnote() {
         isCustomizeModalOpen ? "opacity-50 pointer-events-none" : ""
       }`}
     >
-
       <div className="flex justify-start border-b h-12 px-4 mb-6">
         <Backbtn>
           <p className="text-purple-color-app font-InterMedium">Back</p>

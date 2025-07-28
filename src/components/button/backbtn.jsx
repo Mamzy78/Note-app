@@ -1,8 +1,8 @@
-import React from 'react';
-import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from "react";
+import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+import { useLocation, useNavigate } from "react-router-dom";
 
-function Backbtn({ className = '', children, onClick }) {
+function Backbtn({ className = "", children, onClick }) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -10,10 +10,10 @@ function Backbtn({ className = '', children, onClick }) {
     if (onClick) {
       onClick();
     } else {
-      if (location.key !== 'default') {
+      if (location.key !== "default") {
         navigate(-1);
       } else {
-        navigate('/'); 
+        navigate("/");
       }
     }
   }
@@ -23,7 +23,10 @@ function Backbtn({ className = '', children, onClick }) {
       className={`flex items-center font-InterMedium gap-2 ${className}`}
       onClick={handleClick}
     >
-      <ChevronLeftOutlinedIcon className="text-purple-color-app" style={{width:"20px", height:"20px"}} />
+      <ChevronLeftOutlinedIcon
+        className="text-purple-color-app"
+        style={{ width: "20px", height: "20px" }}
+      />
       {children}
     </button>
   );

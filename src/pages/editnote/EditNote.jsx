@@ -167,7 +167,6 @@ function EditNote() {
           >
             <MoreHorizOutlinedIcon className="h-6 w-6 text-white" />
           </button>
-
         </div>
       </div>
 
