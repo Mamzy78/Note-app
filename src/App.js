@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Login from "./pages/login/login";
 import Verification from "./pages/verification/verification";
 import Intro from "./pages/introduction/introduction";
@@ -16,6 +16,13 @@ import { AuthContext } from "./context/AuthContext";
 
 export default function App() {
   const { phone, isVerified } = useContext(AuthContext);
+  const location = useLocation();
+  const [introShown, setIntroShown] = useState(false);
+  useEffect(() => {
+    if (location.pathname === "/" && !introShown) {
+      setIntroShown(true);
+    }
+  }, [location.pathname, introShown]);
 
   if (!phone) {
     return (
@@ -34,6 +41,10 @@ export default function App() {
         <Route path="*" element={<Navigate to="/verification" replace />} />
       </Routes>
     );
+  }
+
+  if (location.pathname === "/" && !introShown) {
+    return <Navigate to="/intro" replace />;
   }
 
   return (
