@@ -33,7 +33,7 @@ export default function PinnedModal({ isPinnedModalOpen, togglePinnedModal }) {
           </button>
 
           <img
-            src="/Illustration(3).svg"
+            src="/Illustration(3).svg" 
             alt="Success"
             className="mb-4 w-32 h-32"
           />

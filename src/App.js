@@ -11,6 +11,7 @@ import Profile from "./pages/profile/profile";
 import EditNote from "./pages/editnote/EditNote";
 import ViewAllNotes from "./pages/viewallnotes/ViewAllNotes";
 import Finished from "./pages/finished/Finished";
+import NotFound from "./pages/notfound/NotFound";
 import { AuthContext } from "./context/AuthContext";
 
 export default function App() {
@@ -48,7 +49,7 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/verification" element={<Verification />} />
       <Route path="/finished" element={<Finished />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
